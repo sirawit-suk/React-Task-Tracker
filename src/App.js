@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import AddTask from './components/AddTask'
 
 
 const App = () => {
@@ -27,14 +28,39 @@ const App = () => {
     }
   ])
 
-  const name = 'Sirawit'
-  const x = true
+  // Add Tasks
+  const addTask = (task) => {
+
+    // random id 
+    const id = Math.floor(Math.random()* 10000)+1
+    // add random id 
+    const newTask = { id, ...task } // for text / day / reminder 
+    setTasks([...tasks, newTask]) // update new tasks 
+  }
+
+  // Delete Task
+  const deleteTask = (deleteId) => {
+    setTasks(tasks.filter( (task) => task.id !== deleteId)) // set only not this id
+  }
+
+  // Toggle Reminder
+  const toggleReminder = (toggleId) => {
+    setTasks(tasks.map((task) => task.id === toggleId ? {...task, reminder: !task.reminder} : task))
+  } 
 
   return (
     <div className="container">
       
       <Header title='Task Tracker'/>
-      <Tasks tasks={tasks}/> {/* tasks = {... } is like a new variable*/}
+      <AddTask onAdd={addTask}/>
+      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'No Tasks to Show'}
+
+      
+
+
+      
+      
+      {/* tasks = {... } is like a new variable*/}
    
       {/* 
       <h2>Hello {name}</h2>
