@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom'
 
+
 const About = () => {
     return (
         <div>
@@ -13,3 +14,16 @@ const About = () => {
 }
 
 export default About
+
+
+
+export const about2 = () => {
+    return (
+        <div>
+            <p> wtf </p>
+        </div>
+    )
+}
+
+
+

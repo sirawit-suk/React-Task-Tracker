@@ -5,7 +5,7 @@ import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 import Footer from './components/Footer'
-import About from './components/About'
+import About , {about2 as Ab2} from './components/About'
 
 
 const App = () => {
@@ -37,7 +37,7 @@ const App = () => {
     return data
   }
 
-  // Add Tasks
+  // Add Tasks 
   const addTask = async (task) => {
 
     // // random id 
@@ -95,8 +95,6 @@ const App = () => {
           onAdd={() => setShowAddTask(!showAddTask)} 
           showAdd={showAddTask}
         />
- 
-        {/* tasks = {... } is like a new variable*/}
     
         {/* 
         <h2>Hello {name}</h2>
@@ -112,6 +110,7 @@ const App = () => {
           </>
           
         )} />
+        <Ab2 />
         <Route path='/about' component={About}/>
         <Footer />
         
